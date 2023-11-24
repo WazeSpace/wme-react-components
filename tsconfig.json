@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "ESNext",
+    "outDir": "build",
+    "sourceMap": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
