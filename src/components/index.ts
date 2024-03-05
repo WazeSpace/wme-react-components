@@ -18,3 +18,5 @@ export * from './WzTooltip';
 export * from './WzCheckableChip';
 export * from './WzChipSelect';
 export * from './WzChipMultiSelect';
+
+export * from './WzCheckbox';

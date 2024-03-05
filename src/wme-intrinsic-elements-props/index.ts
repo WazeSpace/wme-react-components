@@ -13,3 +13,5 @@ export * from './Card';
 export * from './CheckableChip';
 export * from './ChipSelect';
 export * from './ChipMultiSelect';
+
+export * from './Checkbox';

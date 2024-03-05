@@ -9,7 +9,8 @@ import {
   WzCardProps,
   WzCheckableChipProps,
   WzChipSelectProps,
-  WzChipMultiSelectProps
+  WzChipMultiSelectProps,
+  WzCheckboxProps,
 } from './wme-intrinsic-elements-props';
 
 export namespace Waze.IntrinsicElements {
@@ -32,4 +33,6 @@ export namespace Waze.IntrinsicElements {
   export const WzCheckableChip = createReactComponent<'', WzCheckableChipProps>('wz-checkable-chip');
   export const WzChipSelect = createReactComponent<'', WzChipSelectProps>('wz-chip-select');
   export const WzChipMultiSelect = createReactComponent<'', WzChipMultiSelectProps>('wz-chip-multi-select');
+
+  export const WzCheckbox = createReactComponent<'', WzCheckboxProps>('wz-checkbox');
 }
