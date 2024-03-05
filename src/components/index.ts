@@ -6,3 +6,5 @@ export * from './WzAlertPagination';
 export * from './WzAlertsGroup';
 
 export * from './WzBadge';
+
+export * from './WzButton';

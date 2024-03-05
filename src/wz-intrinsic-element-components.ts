@@ -6,6 +6,7 @@ import {
   WzAlertsGroupProps,
   WzBadgeProps,
 } from './wme-intrinsic-elements-props';
+import { WzButtonProps } from './wme-intrinsic-elements-props/Button';
 
 export namespace Waze.IntrinsicElements {
   export const WzAnchor = createReactComponent<'', WzAnchorProps>('wz-a');
@@ -16,4 +17,6 @@ export namespace Waze.IntrinsicElements {
   export const WzAlertsGroup = createReactComponent<'', WzAlertsGroupProps>('wz-alerts-group');
 
   export const WzBadge = createReactComponent<'', WzBadgeProps>('wz-badge');
+
+  export const WzButton = createReactComponent<'left-icon' | 'right-icon', WzButtonProps>('wz-button');
 }
