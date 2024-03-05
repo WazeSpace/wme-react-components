@@ -5,9 +5,12 @@ import {
   WzAlertPaginationProps,
   WzAlertsGroupProps,
   WzBadgeProps,
+  WzCheckableChipProps,
+  WzChipSelectProps,
 } from './wme-intrinsic-elements-props';
 import { WzButtonProps } from './wme-intrinsic-elements-props/Button';
 import { WzCardProps } from './wme-intrinsic-elements-props/Card';
+import { WzChipMultiSelectProps } from './wme-intrinsic-elements-props/ChipMultiSelect';
 
 export namespace Waze.IntrinsicElements {
   export const WzAnchor = createReactComponent<'', WzAnchorProps>('wz-a');
@@ -25,4 +28,8 @@ export namespace Waze.IntrinsicElements {
   export const WzOverline = createReactComponent('wz-overline');
 
   export const WzCard = createReactComponent<'', WzCardProps>('wz-card');
+
+  export const WzCheckableChip = createReactComponent<'', WzCheckableChipProps>('wz-checkable-chip');
+  export const WzChipSelect = createReactComponent<'', WzChipSelectProps>('wz-chip-select');
+  export const WzChipMultiSelect = createReactComponent<'', WzChipMultiSelectProps>('wz-chip-multi-select');
 }

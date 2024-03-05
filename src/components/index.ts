@@ -14,3 +14,7 @@ export * from './WzTextComponents';
 export * from './WzCard';
 
 export * from './WzTooltip';
+
+export * from './WzCheckableChip';
+export * from './WzChipSelect';
+export * from './WzChipMultiSelect';
