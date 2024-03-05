@@ -4,7 +4,7 @@ export interface WzSectionHeaderProps {
   onBackClicked?: EventHandler<SyntheticEvent<CustomEvent>>;
   headline: string;
   subtitle?: string;
-  size?: 'section-header-1' | 'section-header-2' | 'section-header-3';
+  size?: 'section-header1' | 'section-header2' | 'section-header3';
   backButton?: boolean;
   imageSrc?: string;
 }
