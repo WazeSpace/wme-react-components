@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "module": "UMD",
+    "module": "esnext",
     "moduleResolution": "Node",
     "target": "ESNext",
     "outDir": "build",
