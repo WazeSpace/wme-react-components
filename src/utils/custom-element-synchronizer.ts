@@ -86,6 +86,6 @@ function syncEvent(element: Element & { __events: any }, eventName: string, even
     eventHandler?.call(this, event);
   }
 
-  registeredEventHandler[eventName] = newEventHandler;
+  eventsRepository[eventName] = newEventHandler;
   element.addEventListener(eventName, newEventHandler);
 }
