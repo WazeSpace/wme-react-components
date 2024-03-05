@@ -2,14 +2,18 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "UMD",
+    "moduleResolution": "Node",
     "target": "ESNext",
     "outDir": "build",
     "sourceMap": true,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules"
   ]
