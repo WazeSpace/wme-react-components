@@ -1,4 +1,4 @@
-import React, { Component, ComponentType, ReactElement, ReactNode } from 'react';
+import React, { Component, ComponentType, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { camelToDashCase, dashToPascalCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';
@@ -10,7 +10,7 @@ type SlotsPropsFromSlotNames<S> = {
 
 export function createReactComponent<S extends string = '', P = Record<string, any>>(
   elementTag: keyof JSX.IntrinsicElements,
-): ComponentType<SlotsPropsFromSlotNames<S> & P> {
+): ComponentType<SlotsPropsFromSlotNames<S> & P & HTMLAttributes<HTMLElement>> {
   const componentName = dashToPascalCase(elementTag);
   const ElementComponent = class extends Component<any> {
     private componentElement: Element | null = null;
