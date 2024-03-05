@@ -12,3 +12,5 @@ export * from './WzButton';
 export * from './WzTextComponents';
 
 export * from './WzCard';
+
+export * from './WzTooltip';
