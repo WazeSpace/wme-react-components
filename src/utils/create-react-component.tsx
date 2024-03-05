@@ -77,9 +77,6 @@ export function createReactComponent<S extends string = '', P = Record<string, a
         </>
       )
 
-      console.log(elementChildren);
-      
-
       return React.createElement(elementTag, finalProps, elementChildren);
     }
 
