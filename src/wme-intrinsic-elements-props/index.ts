@@ -19,3 +19,5 @@ export * from './Checkbox';
 export * from './Icon';
 
 export * from './SectionHeader';
+
+export * from './Label';

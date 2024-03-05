@@ -13,6 +13,7 @@ import {
   WzCheckboxProps,
   WzIconProps,
   WzSectionHeaderProps,
+  WzLabelProps,
 } from './wme-intrinsic-elements-props';
 
 export namespace Waze.IntrinsicElements {
@@ -29,6 +30,7 @@ export namespace Waze.IntrinsicElements {
 
   export const WzCaption = createReactComponent('wz-caption');
   export const WzOverline = createReactComponent('wz-overline');
+  export const WzLabel = createReactComponent<'', WzLabelProps>('wz-label');
 
   export const WzCard = createReactComponent<'', WzCardProps>('wz-card');
 
