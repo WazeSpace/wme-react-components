@@ -20,15 +20,10 @@ export function WzBadge(props: WzBadgeProps) {
   const { color, style = {}, ...rest } = props;
 
   const isNativeColor = isNativeBadgeColor(color);
-  console.log('isNativeColor', isNativeColor)
-  console.log('hasColor', color);
   
   if (color && !isNativeColor) {
     style['--wz-badge-dot-color'] = color;
   }
-
-  console.log('applied style', style);
-  
 
   return (
     <Waze.IntrinsicElements.WzBadge
