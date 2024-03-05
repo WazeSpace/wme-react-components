@@ -19,4 +19,7 @@ export namespace Waze.IntrinsicElements {
   export const WzBadge = createReactComponent<'', WzBadgeProps>('wz-badge');
 
   export const WzButton = createReactComponent<'left-icon' | 'right-icon', WzButtonProps>('wz-button');
+
+  export const WzCaption = createReactComponent('wz-caption');
+  export const WzOverline = createReactComponent('wz-overline');
 }

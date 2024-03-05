@@ -8,3 +8,5 @@ export * from './WzAlertsGroup';
 export * from './WzBadge';
 
 export * from './WzButton';
+
+export * from './WzTextComponents';
