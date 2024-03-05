@@ -78,7 +78,7 @@ export function createReactComponent<S extends string = '', P = Record<string, a
     }
 
     static get displayName() {
-      return componentName;
+      return `withElementAdapter(${componentName})`;
     }
   }
 
