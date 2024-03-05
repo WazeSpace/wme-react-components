@@ -1,10 +1,12 @@
 import React, { Component, ComponentType, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import { camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
+import { DashToPascal, camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';
 
-type SlotNameToProperty<S> = S extends `${infer I}${infer R}` ? `slot${Capitalize<I>}${R}` : never;
-type SlotsPropsFromSlotNames<S> = {
+
+type SlotNameToProperty<S extends string> = S extends '' ? never : `slot${DashToPascal<S>}`; //S extends `${infer I}${infer R}` ? `slot${Capitalize<I>}${R}` : never;
+
+type SlotsPropsFromSlotNames<S extends string> = {
   [K in SlotNameToProperty<S>]?: ReactElement;
 }
 

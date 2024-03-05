@@ -1,3 +1,9 @@
+export type DashToPascal<S extends string> = 
+  S extends `${infer First}-${infer Rest}`
+    ? `${Capitalize<First>}${DashToPascal<Rest>}`
+    : Capitalize<S>;
+
+
 export function dashToPascalCase(value: string): string {
   const valueLowered = value.toLowerCase();
   const valueComponents = valueLowered.split('-');
