@@ -12,6 +12,7 @@ import {
   WzChipMultiSelectProps,
   WzCheckboxProps,
   WzIconProps,
+  WzSectionHeaderProps,
 } from './wme-intrinsic-elements-props';
 
 export namespace Waze.IntrinsicElements {
@@ -38,4 +39,6 @@ export namespace Waze.IntrinsicElements {
   export const WzCheckbox = createReactComponent<'', WzCheckboxProps>('wz-checkbox');
 
   export const WzIcon = createReactComponent<'', WzIconProps>('wz-icon');
+
+  export const WzSectionHeader = createReactComponent<'dropdown-items' | 'icon' | 'actions', WzSectionHeaderProps>('wz-section-header');
 }

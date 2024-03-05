@@ -17,3 +17,5 @@ export * from './ChipMultiSelect';
 export * from './Checkbox';
 
 export * from './Icon';
+
+export * from './SectionHeader';

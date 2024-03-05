@@ -22,3 +22,5 @@ export * from './WzChipMultiSelect';
 export * from './WzCheckbox';
 
 export * from './WzIcon';
+
+export * from './WzSectionHeader';
