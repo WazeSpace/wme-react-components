@@ -5,12 +5,12 @@ import {
   WzAlertPaginationProps,
   WzAlertsGroupProps,
   WzBadgeProps,
+  WzButtonProps,
+  WzCardProps,
   WzCheckableChipProps,
   WzChipSelectProps,
+  WzChipMultiSelectProps
 } from './wme-intrinsic-elements-props';
-import { WzButtonProps } from './wme-intrinsic-elements-props/Button';
-import { WzCardProps } from './wme-intrinsic-elements-props/Card';
-import { WzChipMultiSelectProps } from './wme-intrinsic-elements-props/ChipMultiSelect';
 
 export namespace Waze.IntrinsicElements {
   export const WzAnchor = createReactComponent<'', WzAnchorProps>('wz-a');
