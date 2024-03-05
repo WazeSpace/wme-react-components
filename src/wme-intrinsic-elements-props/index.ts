@@ -15,3 +15,5 @@ export * from './ChipSelect';
 export * from './ChipMultiSelect';
 
 export * from './Checkbox';
+
+export * from './Icon';

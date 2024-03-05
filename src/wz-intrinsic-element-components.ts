@@ -11,6 +11,7 @@ import {
   WzChipSelectProps,
   WzChipMultiSelectProps,
   WzCheckboxProps,
+  WzIconProps,
 } from './wme-intrinsic-elements-props';
 
 export namespace Waze.IntrinsicElements {
@@ -35,4 +36,6 @@ export namespace Waze.IntrinsicElements {
   export const WzChipMultiSelect = createReactComponent<'', WzChipMultiSelectProps>('wz-chip-multi-select');
 
   export const WzCheckbox = createReactComponent<'', WzCheckboxProps>('wz-checkbox');
+
+  export const WzIcon = createReactComponent<'', WzIconProps>('wz-icon');
 }
