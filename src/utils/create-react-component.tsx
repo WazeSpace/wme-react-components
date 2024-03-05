@@ -1,5 +1,5 @@
 import React, { Component, ComponentType, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import { camelToDashCase, dashToPascalCase } from './case-converters';
+import { camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';
 
@@ -39,9 +39,10 @@ export function createReactComponent<S extends string = '', P = Record<string, a
           if (typeof document !== "undefined" && isEventCoveredByReact(eventName)) {
             accumulatedProps[propName] = propValue;
           }
-        } else if (propName.startsWith('slot') && propName[4] === propName[4].toUpperCase()) {
+        } else if (propName.toLowerCase() !== 'slot' && propName.startsWith('slot') && propName[4] === propName[4].toUpperCase()) {
           const slotName = propName.substring(4);
-          slotsContent.set(slotName, propValue);
+          const originalSlotName = pascalToDashCase(slotName);
+          slotsContent.set(originalSlotName, propValue);
         } else {
           const valueType = typeof propValue;
     
@@ -66,13 +67,16 @@ export function createReactComponent<S extends string = '', P = Record<string, a
           {Array.from(slotsContent.keys()).map((slotName) => {
             const slotValue = slotsContent.get(slotName);
             if (!slotValue) return null;
-            React.cloneElement(slotValue, {
+            return React.cloneElement(slotValue, {
               ...slotValue?.props,
               slot: slotName,
             })
           })}
         </>
       )
+
+      console.log(elementChildren);
+      
 
       return React.createElement(elementTag, finalProps, elementChildren);
     }

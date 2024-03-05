@@ -12,3 +12,8 @@ export function dashToPascalCase(value: string): string {
 export function camelToDashCase(value: string): string {
   return value.replace(/([A-Z])/g, (capitalLetter) => `-${capitalLetter.toLowerCase()}`);
 }
+
+export function pascalToDashCase(value: string): string {
+  const valueInCamelCase = value[0].toLowerCase() + value.substring(1);
+  return camelToDashCase(valueInCamelCase);
+}
