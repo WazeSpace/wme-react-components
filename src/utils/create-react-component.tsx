@@ -1,7 +1,8 @@
-import React, { Component, ComponentType, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { Component, ComponentType, ForwardRefExoticComponent, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { DashToPascal, camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';
+import { createForwardRef } from './create-forward-ref';
 
 
 type SlotNameToProperty<S extends string> = S extends '' ? never : `slot${DashToPascal<S>}`; //S extends `${infer I}${infer R}` ? `slot${Capitalize<I>}${R}` : never;
@@ -12,7 +13,7 @@ type SlotsPropsFromSlotNames<S extends string> = {
 
 export function createReactComponent<S extends string = '', P = Record<string, any>>(
   elementTag: keyof JSX.IntrinsicElements,
-): ComponentType<SlotsPropsFromSlotNames<S> & P & HTMLAttributes<HTMLElement>> {
+): ForwardRefExoticComponent<SlotsPropsFromSlotNames<S> & P & HTMLAttributes<HTMLElement>> {
   const componentName = dashToPascalCase(elementTag);
   const ElementComponent = class extends Component<any> {
     private componentElement: Element | null = null;
@@ -81,9 +82,9 @@ export function createReactComponent<S extends string = '', P = Record<string, a
     }
 
     static get displayName() {
-      return `withElementAdapter(${componentName})`;
+      return componentName;
     }
   }
 
-  return ElementComponent;
+  return createForwardRef(ElementComponent);
 }
