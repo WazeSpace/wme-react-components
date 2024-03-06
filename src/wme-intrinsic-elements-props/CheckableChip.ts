@@ -3,9 +3,9 @@ import { EventHandler, SyntheticEvent } from 'react';
 export type WzCheckableChipSize = 'sm' | 'md' | 'lg';
 export interface WzCheckableChipProps {
   children: string;
-  onChipClicked?: EventHandler<SyntheticEvent<CustomEvent>>;
-  onChipChanged?: EventHandler<SyntheticEvent<CustomEvent>>;
-  onRemoveClicked?: EventHandler<SyntheticEvent<CustomEvent>>;
+  onChipClicked?(event: CustomEvent): void;
+  onChipChanged?(event: CustomEvent): void;
+  onRemoveClicked?(event: CustomEvent): void;
   showCheckIconWhenChecked?: boolean;
   checked?: boolean;
   value?: string | number;
