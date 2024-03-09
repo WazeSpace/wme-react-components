@@ -1,4 +1,4 @@
-import { Component, ComponentProps, ComponentType, EventHandler, HTMLAttributes, ReactEventHandler, ReactNode, SyntheticEvent, createElement, createRef } from 'react';
+import { Component, ComponentProps, ComponentType, HTMLAttributes, ReactNode, SyntheticEvent, createElement, createRef } from 'react';
 import { camelToPascalCase } from './case-converters';
 import { omitProps } from './object-extraction';
 import { getReactDisplayName } from './react-display-name';

@@ -1,5 +1,3 @@
-import { EventHandler, SyntheticEvent } from 'react';
-
 export type WzCheckableChipSize = 'sm' | 'md' | 'lg';
 export interface WzCheckableChipProps {
   children: string;

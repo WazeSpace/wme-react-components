@@ -1,5 +1,3 @@
-import { EventHandler, SyntheticEvent } from 'react';
-
 export interface WzSectionHeaderProps {
   onBackClicked?(event: CustomEvent): void;
   headline: string;

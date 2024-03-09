@@ -1,4 +1,4 @@
-import { EventHandler, ReactNode, SyntheticEvent } from 'react';
+import { ReactNode } from 'react';
 
 export interface WzAlertDismissProps {
   children: ReactNode;

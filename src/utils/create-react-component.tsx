@@ -1,4 +1,4 @@
-import React, { Component, ComponentType, ForwardRefExoticComponent, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { Component, ForwardRefExoticComponent, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { DashToPascal, camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';

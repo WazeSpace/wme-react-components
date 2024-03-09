@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentType, ForwardRefRenderFunction, createElement, forwardRef } from 'react';
+import { ComponentProps, ComponentType, createElement, forwardRef, ForwardRefRenderFunction } from 'react';
 import { getReactDisplayName } from './react-display-name';
 
 export function createForwardRef<C extends ComponentType<any>>(component: C) {
@@ -9,6 +9,5 @@ export function createForwardRef<C extends ComponentType<any>>(component: C) {
     });
   };
   render.displayName = getReactDisplayName(component);
-  const forwardedRefComponent = forwardRef(render);
-  return forwardedRefComponent;
+  return forwardRef(render);
 }
