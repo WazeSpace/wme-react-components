@@ -1,11 +1,11 @@
 {
   "name": "@wazespace/wme-react-components",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A package with useful replications of the Waze Map Editor components to use in userscripts",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf build && tsc",
-    "prepublish": "rm -rf build && tsc"
+    "build": "rm -rf dist && tsc",
+    "prepublish": "rm -rf dist && tsc"
   },
   "keywords": [
     "waze",
@@ -25,6 +25,6 @@
     "clsx": "^2.0.0"
   },
   "files": [
-    "build"
+    "dist"
   ]
 }

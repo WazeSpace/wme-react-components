@@ -5,9 +5,10 @@
     "module": "esnext",
     "moduleResolution": "Node",
     "target": "ESNext",
-    "outDir": "build",
+    "outDir": "dist",
     "sourceMap": true,
     "declaration": true,
+    "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx"
   },
