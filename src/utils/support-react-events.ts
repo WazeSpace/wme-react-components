@@ -5,7 +5,7 @@ import { getReactDisplayName } from './react-display-name';
 
 type ReactEventsProps = Pick<HTMLAttributes<Element>, 'onChange' | 'onClick'>;
 
-export function supportReactEvents<P extends ReactEventsProps, C extends ComponentType<P> = ComponentType<P>>(component: C): Component<ComponentProps<C>> {
+export function supportReactEvents<P extends ReactEventsProps, C extends ComponentType<P> = ComponentType<P>>(component: C): typeof Component<ComponentProps<C>> {
   const componentWithEvents = class extends Component<ComponentProps<C>> {
     private handleOnChange = this.createEventHandler('change');
     private handleOnClick = this.createEventHandler('click');
@@ -53,5 +53,5 @@ export function supportReactEvents<P extends ReactEventsProps, C extends Compone
     }
   };
   (componentWithEvents as any).displayName = `WithReactEvents(${getReactDisplayName(component)})`;
-  return componentWithEvents as unknown as Component<ComponentProps<C>>;
+  return componentWithEvents;
 }
