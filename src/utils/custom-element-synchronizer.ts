@@ -17,7 +17,7 @@ export function attachPropsToDOMElement(element: Element, newProps: any, oldProp
     const propValue = newProps[propKey];
 
     if (propKey.startsWith('on') && propKey[2] === propKey[2].toUpperCase()) {
-      // this is an event handler registrator
+      // this is an event handler registrar
       const eventName = propKey.substring(2);
       const normalizedEventName = eventName.charAt(0).toLowerCase() + eventName.substring(1);
 

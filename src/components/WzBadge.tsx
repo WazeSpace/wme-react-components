@@ -35,6 +35,6 @@ export function WzBadge(props: WzBadgeProps) {
 }
 
 function isNativeBadgeColor(color: string | undefined): color is WzBadgeNativeColor {
-  if (!color) return true; // in case there is no color provided, the default one will be choosed, hence it is a native color
+  if (!color) return true; // in case there is no color provided, the default one will be chosen, hence it is a native color
   return (WzBadgeNativeColorsArray as readonly string[]).includes(color);
 }
