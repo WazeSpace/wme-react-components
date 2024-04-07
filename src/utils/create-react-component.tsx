@@ -1,4 +1,4 @@
-import React, { Component, ForwardRefExoticComponent, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { Component, ForwardRefExoticComponent, HTMLAttributes, ReactElement, ReactNode, RefAttributes } from 'react';
 import { DashToPascal, camelToDashCase, dashToPascalCase, pascalToDashCase } from './case-converters';
 import { attachPropsToDOMElement, isEventCoveredByReact } from './custom-element-synchronizer';
 import { mergeRefs } from './merge-refs';
@@ -11,9 +11,9 @@ type SlotsPropsFromSlotNames<S extends string> = {
   [K in SlotNameToProperty<S>]?: ReactElement;
 }
 
-export function createReactComponent<S extends string = '', P = Record<string, any>>(
+export function createReactComponent<T = HTMLElement, S extends string = '', P = Record<string, any>>(
   elementTag: keyof JSX.IntrinsicElements,
-): ForwardRefExoticComponent<SlotsPropsFromSlotNames<S> & P & HTMLAttributes<HTMLElement>> {
+): ForwardRefExoticComponent<SlotsPropsFromSlotNames<S> & P & HTMLAttributes<HTMLElement> & RefAttributes<T>> {
   const componentName = dashToPascalCase(elementTag);
   const ElementComponent = class extends Component<any> {
     private componentElement: Element | null = null;

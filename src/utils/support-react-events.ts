@@ -1,17 +1,25 @@
-import { Component, ComponentProps, ComponentType, HTMLAttributes, ReactNode, SyntheticEvent, createElement, createRef } from 'react';
+import { Component, ComponentProps, ComponentType, ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes, SyntheticEvent, createElement, createRef } from 'react';
 import { camelToPascalCase } from './case-converters';
 import { omitProps } from './object-extraction';
 import { getReactDisplayName } from './react-display-name';
+import { createForwardRef } from './create-forward-ref';
+import { mergeRefs } from './merge-refs';
 
 type ReactEventsProps = Pick<HTMLAttributes<Element>, 'onChange' | 'onClick'>;
+type RefTypeByComponent<C extends ComponentType<any>> = C extends ComponentType<RefAttributes<infer T>> ? T : never;
 
-export function supportReactEvents<P extends ReactEventsProps, C extends ComponentType<P> = ComponentType<P>>(component: C): typeof Component<ComponentProps<C>> {
-  const componentWithEvents = class extends Component<ComponentProps<C>> {
+export function supportReactEvents<
+  P extends ReactEventsProps,
+  C extends ComponentType<P> = ComponentType<P>
+>(component: C): ForwardRefExoticComponent<
+  ComponentProps<C>
+> {
+  const componentWithEvents = class extends Component<ComponentProps<C> & { forwardedRef: RefTypeByComponent<C> }> {
     private handleOnChange = this.createEventHandler('change');
     private handleOnClick = this.createEventHandler('click');
     private elementRef = createRef<Element>();
 
-    constructor(props: ComponentProps<C>) {
+    constructor(props: ComponentProps<C> & { forwardedRef: RefTypeByComponent<C> }) {
       super(props);
     }
 
@@ -45,7 +53,7 @@ export function supportReactEvents<P extends ReactEventsProps, C extends Compone
       return createElement(
         component,
         {
-          ref: this.elementRef,
+          ref: mergeRefs(this.elementRef, this.props.forwardedRef as any),
           ...nonReactiveProps
         } as ComponentProps<C>,
         this.props.children,
@@ -53,5 +61,5 @@ export function supportReactEvents<P extends ReactEventsProps, C extends Compone
     }
   };
   (componentWithEvents as any).displayName = `WithReactEvents(${getReactDisplayName(component)})`;
-  return componentWithEvents;
+  return createForwardRef(componentWithEvents) as any;
 }
