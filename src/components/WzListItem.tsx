@@ -1,7 +1,11 @@
 import { ComponentProps, ReactNode } from 'react';
 import { Waze } from '../wz-intrinsic-element-components';
+import { supportReactEvents } from '../utils/support-react-events';
+import { omitProps, pickProps } from '../utils/object-extraction';
 
-interface WzListItemProps {
+const IntrinsicWzListItem = supportReactEvents(Waze.IntrinsicElements.WzListItem);
+
+interface WzListItemProps extends ComponentProps<'div'> {
   itemKey?: string | ReactNode;
   value?: string | ReactNode;
   subtitle?: string | ReactNode;
@@ -38,13 +42,13 @@ export function WzListItem({ children, ...props }: WzListItemProps) {
     return [slotPropName, propValue] as const;
   }
 
-  const contentPropsNames = Object.keys(props) as Array<keyof typeof props>;
-  const intrinsicProps = Object.fromEntries(removeNulls(contentPropsNames.map(propToSlotOrAttributeEntry)));
+  const contentPropNames: Array<keyof typeof props> = ['itemKey', 'value', 'subtitle', 'image', 'clickable', 'disabled', 'selected', 'expanded'];
+  const intrinsicProps = Object.fromEntries(removeNulls(contentPropNames.map(propToSlotOrAttributeEntry)));
 
   return (
-    <Waze.IntrinsicElements.WzListItem {...intrinsicProps}>
+    <IntrinsicWzListItem {...intrinsicProps} {...omitProps(props, [...contentPropNames])}>
       {children}
-    </Waze.IntrinsicElements.WzListItem>
+    </IntrinsicWzListItem>
   )
 }
 

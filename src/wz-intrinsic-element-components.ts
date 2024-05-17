@@ -44,7 +44,7 @@ export namespace Waze.IntrinsicElements {
   export const WzIcon = createReactComponent<HTMLElement, '', WzIconProps>('wz-icon');
 
   export const WzList = createReactComponent<HTMLElement>('wz-list');
-  export const WzListItem = createReactComponent<HTMLElement, 'icon' | 'item-key' | 'image' | 'subtitle' | 'value' | 'actions', WzListItemProps>('wz-list-item');
+  export const WzListItem = createReactComponent<HTMLDivElement, 'icon' | 'item-key' | 'image' | 'subtitle' | 'value' | 'actions', WzListItemProps>('wz-list-item');
 
   export const WzSectionHeader = createReactComponent<HTMLElement, 'dropdown-items' | 'icon' | 'actions', WzSectionHeaderProps>('wz-section-header');
 }
