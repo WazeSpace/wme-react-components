@@ -15,6 +15,7 @@ import {
   WzSectionHeaderProps,
   WzLabelProps,
 } from './wme-intrinsic-elements-props';
+import { WzListItemProps } from './wme-intrinsic-elements-props/WzListItem';
 
 export namespace Waze.IntrinsicElements {
   export const WzAnchor = createReactComponent<HTMLAnchorElement, '', WzAnchorProps>('wz-a');
@@ -41,6 +42,9 @@ export namespace Waze.IntrinsicElements {
   export const WzCheckbox = createReactComponent<HTMLInputElement, '', WzCheckboxProps>('wz-checkbox');
 
   export const WzIcon = createReactComponent<HTMLElement, '', WzIconProps>('wz-icon');
+
+  export const WzList = createReactComponent<HTMLElement>('wz-list');
+  export const WzListItem = createReactComponent<HTMLElement, 'icon' | 'item-key' | 'image' | 'subtitle' | 'value' | 'actions', WzListItemProps>('wz-list-item');
 
   export const WzSectionHeader = createReactComponent<HTMLElement, 'dropdown-items' | 'icon' | 'actions', WzSectionHeaderProps>('wz-section-header');
 }

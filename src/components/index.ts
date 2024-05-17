@@ -23,4 +23,7 @@ export * from './WzCheckbox';
 
 export * from './WzIcon';
 
+export { WzList } from './WzList';
+export { WzListItem } from './WzListItem';
+
 export * from './WzSectionHeader';
