@@ -31,7 +31,7 @@ export function WzListItem({ children, ...props }: WzListItemProps) {
   const propToSlotOrAttributeEntry = (propName: keyof typeof props) => {
     const propValue = props[propName];
     if (!propValue) return null;
-    if (typeof propValue === 'string' || typeof propValue === 'number') {
+    if (typeof propValue === 'string' || typeof propValue === 'number' || typeof propValue === 'boolean') {
       // should be set as an attribute
       const intrinsicPropName = propToIntrinsicPropMap[propName] ?? propName;
       return [intrinsicPropName, propValue] as const;
@@ -46,7 +46,7 @@ export function WzListItem({ children, ...props }: WzListItemProps) {
   const intrinsicProps = Object.fromEntries(removeNulls(contentPropNames.map(propToSlotOrAttributeEntry)));
 
   return (
-    <IntrinsicWzListItem {...intrinsicProps} {...omitProps(props, [...contentPropNames])}>
+    <IntrinsicWzListItem {...intrinsicProps} {...omitProps(props, contentPropNames)}>
       {children}
     </IntrinsicWzListItem>
   )
